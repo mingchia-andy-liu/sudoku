@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Home from '../Home'
 
 const AppBase = styled.div`
-    background: red;
 `
 
 class App extends React.Component {
