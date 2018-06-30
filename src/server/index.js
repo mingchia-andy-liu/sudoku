@@ -26,16 +26,12 @@ app.get('/:filename(main.js)', (request, response) => {
 // Bring in these middlewares after assets
 app.use(bodyParser.json())
 // routes setup
-app.get(
-    '/sudoku/board',
-    (req, res) => {
-        res.send({hello: 'world'})
-    }
-)
+require('./routes')(app)
 
 app.get('*', (request, response) => {
     sendFile(PUBLIC_DIR, 'index.html', response)
 })
+
 
 server.listen(PORT, (err) => {
     if (err) {
