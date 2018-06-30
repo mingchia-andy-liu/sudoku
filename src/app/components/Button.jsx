@@ -20,13 +20,14 @@ const Wrapper = styled.button`
 class Button extends React.PureComponent {
     render() {
         return (
-            <Wrapper> {this.props.text} </Wrapper>
+            <Wrapper onClick={this.props.onClick}> {this.props.text} </Wrapper>
         )
     }
 }
 
 Button.propTypes = {
     text: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export default Button

@@ -14,7 +14,7 @@ class Board extends React.Component {
         return (
             <Wrapper>
                 {[...Array(9)].map((x, i) =>
-                    <Row key={i} cells={[1,2,3,4,5,6,7,8,9]} />
+                    <Row key={i} cells={this.props.data.slice(i * 9, (i* 9) + 9)} />
                 )}
             </Wrapper>
         )
