@@ -16,3 +16,17 @@ export const fetchBoard = () => async (dispatch) => {
         dispatch({ type: types.REQUEST_ERROR })
     }
 }
+
+export const fetchFixedBoard = (value, row, col) => async (dispatch) => {
+    try {
+        dispatch({ type: types.REQUEST_START })
+        const bs = await fetch(`${baseURL}/sudoku/board/fixed/?value=${value}&row=${row}&col=${col}`)
+        const { data } = await bs.json()
+        dispatch({
+            type: types.REQUEST_SUCCESS,
+            payload: data,
+        })
+    } catch (error) {
+        dispatch({ type: types.REQUEST_ERROR })
+    }
+}
