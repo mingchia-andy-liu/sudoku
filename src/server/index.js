@@ -19,9 +19,9 @@ app.get('/:filename(main.js)', (request, response) => {
     sendFile(PUBLIC_DIR, request.url, response)
 })
 
-// app.get(['/assets/:filename', '/assets/*/:filename'], (request, response) => {
-//     sendFile(PUBLIC_DIR, request.url, response)
-// })
+app.get(['/assets/:filename'], (request, response) => {
+    sendFile(PUBLIC_DIR, request.url, response)
+})
 
 // Bring in these middlewares after assets
 app.use(bodyParser.json())
