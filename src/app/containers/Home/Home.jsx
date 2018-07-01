@@ -12,7 +12,16 @@ import * as actions from './actions'
 
 const Header = styled.h1`
     text-align: center;
+    margin: 10px;
 `
+
+const Message = styled.span`
+    padding: 15px;
+    color: #D8000C;
+    border-radius: 5px;
+    border: 1px solid #D8000C;
+`
+
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -40,11 +49,12 @@ class Home extends React.Component {
     }
 
     render() {
-        const { isLoading, data } = this.props
+        const { isLoading, hasError, data } = this.props
         return (
             <Wrapper>
                 <Header>Sudoku Home Page</Header>
                 <Button onClick={() => this.onRefreshClick()} text={'Refresh'}/>
+                {hasError && <Message>Oops! Something went wrong.</Message>}
                 {isLoading ? <Loader /> : <Board data={data}/>}
             </Wrapper>
         )
@@ -53,14 +63,16 @@ class Home extends React.Component {
 
 Home.propTypes = {
     isLoading: PropTypes.bool.isRequired,
+    hasError:  PropTypes.bool.isRequired,
     data: PropTypes.arrayOf(PropTypes.number).isRequired,
     selected: PropTypes.number.isRequired,
     fetchBoard: PropTypes.func.isRequired,
     fetchFixedBoard: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = ({ home: { isLoading, data }, board : { selected }}) => ({
+const mapStateToProps = ({ home: { isLoading, hasError, data }, board : { selected }}) => ({
     isLoading,
+    hasError,
     data,
     selected,
 })

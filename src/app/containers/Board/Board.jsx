@@ -9,7 +9,7 @@ import { Shadow } from '../../styles'
 
 const Wrapper = styled.div`
     ${Shadow}
-    margin: 20px;
+    margin: 10px;
     border: 1px solid #444;
 `
 class Board extends React.Component {

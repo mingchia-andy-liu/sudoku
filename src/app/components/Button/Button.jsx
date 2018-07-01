@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const Wrapper = styled.button`
     --color: #4242d7;
     padding: 10px;
+    margin: 10px;
     border: 1px solid var(--color);
     border-radius: 5px;
     width: 150px;

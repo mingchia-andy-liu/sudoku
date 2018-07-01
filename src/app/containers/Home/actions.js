@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import types from './types'
+import boardTypes from '../Board/types'
 
 const baseURL = 'http://localhost:8080'
 
@@ -28,5 +29,6 @@ export const fetchFixedBoard = (value, row, col) => async (dispatch) => {
         })
     } catch (error) {
         dispatch({ type: types.REQUEST_ERROR })
+        dispatch({ type: boardTypes.CELL_UNSELECTED })
     }
 }
