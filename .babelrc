@@ -1,4 +1,10 @@
 {
-    "presets": ["react"],
-    "plugins": ["transform-object-rest-spread"]
+    "presets": ["react", "jest"],
+    "plugins": ["transform-object-rest-spread"],
+    "env": {
+        "test": {
+            "presets": ["env"],
+            "plugins": ["babel-plugin-styled-components"]
+        }
+    }
 }

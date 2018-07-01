@@ -7,8 +7,9 @@ const Wrapper = styled.div`
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
     user-select: none;
 
     border-top: ${(props) => (props.top ? '3px solid #444' : '1px solid #444')};
@@ -40,7 +41,7 @@ class Cell extends React.PureComponent {
                 selected={isSelected}
                 onClick={() => {this.props.onClick(index)}}
             >
-                {this.props.value}
+                <span>{this.props.value}</span>
             </Wrapper>
         )
     }
