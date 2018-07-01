@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: always
+    depends_on:
+      - nodejs
+
+  nodejs:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    restart: always

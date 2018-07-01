@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server",
-    "start:dev": "NODE_ENV=development node ./src/server",
+    "start": "node ./server",
+    "start:dev": "NODE_ENV=development node ./server",
     "build": "npm run lint && npm run test && npm run webpack",
-    "lint": "eslint src --ext js,jsx --config .eslintrc.json --fix",
+    "lint": "eslint . --ext js,jsx --config .eslintrc.json --fix",
     "webpack": "webpack --progress --colors --config ./webpack.config.js",
     "webpack:dev": "NODE_ENV=development webpack --progress --colors --config ./webpack.config.js",
     "test": "jest",

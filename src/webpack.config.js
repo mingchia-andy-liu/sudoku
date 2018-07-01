@@ -14,11 +14,11 @@ const webpackProdConfig = {
 
 let webpackConfig = {
     entry: [
-        path.resolve(__dirname, 'src', 'app', 'app.jsx')
+        path.resolve(__dirname, 'app', 'app.jsx')
     ],
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'src/public'),
+        path: path.resolve(__dirname, 'public'),
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -40,10 +40,6 @@ let webpackConfig = {
                 ],
             }
         ],
-    },
-    devServer: {
-        host: 'localhost',
-        contentBase: path.resolve(__dirname, 'src'),
     },
 }
 
