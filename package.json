@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node ./src/server",
     "start:dev": "NODE_ENV=development node ./src/server",
+    "build": "npm run lint && npm run test && npm run webpack",
     "lint": "eslint src --ext js,jsx --config .eslintrc.json --fix",
-    "build": "webpack --progress --colors --config ./webpack.config.js",
-    "build:dev": "NODE_ENV=development webpack --progress --colors --config ./webpack.config.js",
+    "webpack": "webpack --progress --colors --config ./webpack.config.js",
+    "webpack:dev": "NODE_ENV=development webpack --progress --colors --config ./webpack.config.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"

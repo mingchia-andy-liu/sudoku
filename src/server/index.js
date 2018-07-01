@@ -35,8 +35,7 @@ app.get('*', (request, response) => {
 
 server.listen(PORT, (err) => {
     if (err) {
-        return console.error(err)
+        return console.error(err) // eslint-disable-line
     }
-    console.log(`[ OK ] App is listening on port: ${PORT} 👂`)
-    console.log(`http://localhost:${PORT}`)
+    console.log(`[ OK ] App is listening on port: ${PORT} 👂\nhttp://localhost:${PORT}`) // eslint-disable-line
 })
