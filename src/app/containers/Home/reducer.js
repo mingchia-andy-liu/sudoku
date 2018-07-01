@@ -5,7 +5,6 @@ const initState = {
     data: [...Array(81).fill(0)],
 }
 
-
 export default (state = initState, action) => {
     switch (action.type) {
         case types.REQUEST_START:
@@ -21,7 +20,7 @@ export default (state = initState, action) => {
         case types.REQUEST_ERROR:
             return {
                 isLoading: false,
-                data: [],
+                data: [...Array(81).fill(0)],
             }
         default:
             return state

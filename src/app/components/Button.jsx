@@ -3,18 +3,25 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Wrapper = styled.button`
+    --color: #4242d7;
     padding: 10px;
+    border: 1px solid var(--color);
     border-radius: 5px;
-    background: #F1F1F1;
     width: 150px;
     font-size: 1em;
+    font-weight: 600;
     user-select: none;
     outline: none;
+    color: var(--color);
+    background-color: transparent;
 
     &:hover {
-        background: #AAA;
+        background-color: var(--color);
+        color: #fff;
         cursor: pointer;
     }
+
+    transition: all 0.5s;
 `
 
 class Button extends React.PureComponent {

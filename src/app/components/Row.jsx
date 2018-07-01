@@ -17,16 +17,37 @@ class Row extends React.Component {
     render() {
         return (
             <Wrapper>
-                {this.props.cells.map((el, index) => {
-                    return <Cell key={`cell-${el}-${index}`} value={el} />
-                })}
+                {this.props.cells.map((el, index) =>
+                    <Cell
+                        key={`cell-${el}-${index}`}
+                        index={(this.props.index * 9) + index}
+                        value={el}
+                        selected={this.props.selected}
+                        onClick={(index) => {this.props.onClick(index)}}
+                    />
+                )}
             </Wrapper>
         )
     }
 }
 
 Row.propTypes = {
+    /**
+     * The row index, range from 0 to 8
+     */
+    index: PropTypes.number.isRequired,
+    /**
+     * The cell data
+     */
     cells: PropTypes.arrayOf(PropTypes.number).isRequired,
+    /**
+     * The selected index
+     */
+    selected: PropTypes.number.isRequired,
+    /**
+     * The onClick event handler for the cell
+     */
+    onClick: PropTypes.func.isRequired,
 }
 
 

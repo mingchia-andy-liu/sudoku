@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import Board from '../Board/Board'
 import Button from '../../components/Button'
-import Board from '../../components/Board'
 import Loader from '../../components/Loader'
 
 import * as actions from './actions'
@@ -30,12 +30,21 @@ class Home extends React.Component {
         this.props.fetchBoard()
     }
 
+    onRefreshClick() {
+        const { selected, data } = this.props
+        if (selected === -1) {
+            this.props.fetchBoard()
+        } else {
+            this.props.fetchFixedBoard(data[selected], Math.floor(selected / 9), selected % 9)
+        }
+    }
+
     render() {
         const { isLoading, data } = this.props
         return (
             <Wrapper>
                 <Header>Sudoku Home Page</Header>
-                <Button onClick={this.props.fetchBoard} text={'Refresh'}/>
+                <Button onClick={() => this.onRefreshClick()} text={'Refresh'}/>
                 {isLoading ? <Loader /> : <Board data={data}/>}
             </Wrapper>
         )
@@ -45,12 +54,15 @@ class Home extends React.Component {
 Home.propTypes = {
     isLoading: PropTypes.bool.isRequired,
     data: PropTypes.arrayOf(PropTypes.number).isRequired,
+    selected: PropTypes.number.isRequired,
     fetchBoard: PropTypes.func.isRequired,
+    fetchFixedBoard: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = ({ home: { isLoading, data } }) => ({
-    isLoading: isLoading,
-    data: data,
+const mapStateToProps = ({ home: { isLoading, data }, board : { selected }}) => ({
+    isLoading,
+    data,
+    selected,
 })
 
 export default connect(mapStateToProps, actions)(Home)
