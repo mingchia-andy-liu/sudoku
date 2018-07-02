@@ -7,8 +7,8 @@ const Wrapper = styled.div`
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
+    width: calc(35px + 0.8em);
+    height: calc(35px + 0.8em);
     font-size: 1.5em;
     user-select: none;
 

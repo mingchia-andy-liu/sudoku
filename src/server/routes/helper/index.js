@@ -17,6 +17,14 @@ const rotateLeft = (arr) => {
 }
 
 /**
+ * returns a random int range [0, max)
+ * @param {number} max
+ */
+const getRandInt = (max) => {
+    return Math.floor(Math.random() * max)
+}
+
+/**
  * swap a and b in the board
  * @param {array} board sudoku board
  * @param {number} a the number to be swapped with b
@@ -62,6 +70,33 @@ const shuffleBoard = function(value, row, col) {
         }
     }
 
+
+    // shuffle rows & cols
+    for (let i = 0; i < 100; i++) {
+        const rowChunkIndex = getRandInt(3)
+        for (let j = 0; j < 10; j++) {
+            const A = (rowChunkIndex * 3) + getRandInt(3)
+            let B = (rowChunkIndex * 3) + getRandInt(3)
+            while (A === B) {
+                B = (rowChunkIndex * 3) + getRandInt(3)
+            }
+
+            // swapping rows
+            for (let k = 0; k < 9; k++) {
+                const temp = board[(A * 9) + k]
+                board[(A * 9) + k] = board[(B * 9) + k]
+                board[(B * 9) + k] = temp
+            }
+
+            // swapping cols
+            for (let k = 0; k < 9; k++) {
+                const temp = board[A + (k * 9)]
+                board[A  + (k * 9)] = board[B + (k * 9)]
+                board[B + (k * 9)] = temp
+            }
+        }
+    }
+
     if (value !== -1) {
         // fixed cell is @ row and col
         const temp = board[(row * 9) + col]
@@ -74,18 +109,19 @@ const shuffleBoard = function(value, row, col) {
 
     //  pick two numbers a and b at random and shuffle them.
     for(let i = 0; i < 100; i++) {
-        let a = Math.floor(Math.random() * 9) + 1
-        let b = Math.floor(Math.random() * 9) + 1
+        let a = getRandInt(9) + 1
+        let b = getRandInt(9) + 1
         while (a === value) {
             a = ((a + 1) % 9) + 1
         }
 
         while(a === b || b === value) {
-            b = Math.floor(Math.random() * 9) + 1
+            b = getRandInt(9) + 1
         }
 
         swap(board, a, b)
     }
+
     return board
 }
 

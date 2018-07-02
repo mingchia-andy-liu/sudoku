@@ -53,7 +53,7 @@ class Home extends React.Component {
         return (
             <Wrapper>
                 <Header>Sudoku Home Page</Header>
-                <Button onClick={() => this.onRefreshClick()} text={'Refresh'}/>
+                <Button onClick={() => this.onRefreshClick()} text={'Reload'}/>
                 {hasError && <Message>Oops! Something went wrong.</Message>}
                 {isLoading ? <Loader /> : <Board data={data}/>}
             </Wrapper>

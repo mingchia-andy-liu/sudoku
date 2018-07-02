@@ -8,7 +8,7 @@ export const fetchBoard = () => async (dispatch) => {
     try {
         dispatch({ type: types.REQUEST_START })
         const bs = await fetch(`${baseURL}/sudoku/board`)
-        const { data } = await bs.json()
+        const data  = await bs.json()
         dispatch({
             type: types.REQUEST_SUCCESS,
             payload: data,
@@ -22,7 +22,7 @@ export const fetchFixedBoard = (value, row, col) => async (dispatch) => {
     try {
         dispatch({ type: types.REQUEST_START })
         const bs = await fetch(`${baseURL}/sudoku/board/fixed/?value=${value}&row=${row}&col=${col}`)
-        const { data } = await bs.json()
+        const data  = await bs.json()
         dispatch({
             type: types.REQUEST_SUCCESS,
             payload: data,

@@ -12,6 +12,14 @@ injectGlobal`
         /*remove browser padding and margin*/
         padding: 0;
         margin: 0;
+
+        @media (max-width: 520px) {
+            font-size: 12px;
+        }
+
+        @media (min-width: 1440px) {
+            font-size: 24px;
+        }
     }
 `
 

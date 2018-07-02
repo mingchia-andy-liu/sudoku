@@ -13,7 +13,7 @@ router.get(
         if (row > 8 || row < 0 || col > 8 || col < 0) {
             res.sendStatus(400)
         } else {
-            res.send({data: generateBoard(value, row, col)})
+            res.send(generateBoard(value, row, col))
         }
     }
 )
@@ -22,7 +22,7 @@ router.get(
 router.get(
     '/board',
     (req, res) => {
-        res.send({data: generateBoard()})
+        res.send(generateBoard())
     }
 )
 
