@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080
 
 // Only logs error
 app.use(logger('common', {
-    skip: function (req, res) { return res.statusCode < 400 }
+    skip: function (req, res) { return res.statusCode < 400 },
 }))
 
 // Static Assets
