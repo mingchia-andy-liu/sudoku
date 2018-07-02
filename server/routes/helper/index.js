@@ -13,6 +13,7 @@ const generateBoard = (value = -1, row = -1, cell = -1) => {
  * @param {array} arr array to be shifted
  */
 const rotateLeft = (arr) => {
+    if (!arr || arr.length < 2) return
     arr.push(arr.shift())
 }
 
@@ -125,6 +126,61 @@ const shuffleBoard = function(value, row, col) {
     return board
 }
 
+const isRowValid = (board, row) => {
+    const check = [...Array(9).fill(0)]
+    for (let i = row * 9; i < (row * 9) + 9; i++) {
+        if (board[i] < 1 || board[i] > 9) return false
+        check[board[i] - 1]++
+    }
+    for (let i = 0; i < 9; i++) {
+        if (check[i] !== 1) return false
+    }
+    return true;
+}
+
+const isColValid = (board, col) => {
+    const check = [...Array(9).fill(0)]
+    for (let i = 0; i < 9; i++) {
+        if (board[(i * 9) + col] < 1 || board[(i * 9) + col] > 9) return false
+        check[board[(i * 9) + col] - 1]++
+    }
+    for (let i = 0; i < 9; i++) {
+        if (check[i] !== 1) return false
+    }
+    return true;
+}
+
+const isBlkValid = (board, blk) => {
+    const check = [...Array(9).fill(0)]
+    const startIdx = Math.floor(blk / 3) * 27 + (blk % 3) * 3
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            const val = board[startIdx + i * 9 + j]
+            if (val > 9 || val < 1) return false
+            check[val - 1]++
+        }
+    }
+    for (let i = 0; i < 9; i++) {
+        if (check[i] !== 1) return false
+    }
+    return true;
+}
 
 
-module.exports = generateBoard
+const isBoardValid = (board) => {
+    for (let i = 0; i < 9; i++) {
+        if (!isRowValid(board, i) ||
+            !isColValid(board, i) ||
+            !isBlkValid(board, i)) return false
+    }
+    return true
+}
+
+module.exports = {
+    generateBoard: generateBoard,
+    rotateLeft: rotateLeft,
+    getRandInt: getRandInt,
+    isBoardValid: isBoardValid,
+}
+
+
