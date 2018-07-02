@@ -7,9 +7,10 @@ WORKDIR /usr/app
 COPY package.json .
 RUN npm install --slient
 
-# copy the front end files and compiles it public
+EXPOSE 8080
+
+# copy index.js and API files
 COPY . .
-RUN npm run build
 
 EXPOSE 8080
 

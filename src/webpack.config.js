@@ -29,15 +29,6 @@ let webpackConfig = {
                 test: /\.(jsx?)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-            },
-            {
-                test: /\.(s?css)$/,
-                use: [
-                    // creates style nodes from JS strings
-                    'style-loader',
-                    // translates CSS into CommonJS
-                    'css-loader'
-                ],
             }
         ],
     },
