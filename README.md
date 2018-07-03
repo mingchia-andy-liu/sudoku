@@ -5,19 +5,27 @@ This repo is a sudoku generator.
 ## Tech stack
 1. Docker
 1. React + Redux + Jest
-1. NodeJS + Express
+1. NodeJS + Express + Mocha
 1. NGINX
 
 ## How to run
-To run the application, you need to install `Docker`. Here is a [link](https://docs.docker.com/install/) from the offical docs. Once you have installed it, it should create symlinks for `docker` and `docker-compose` commands.
+For level 1 & 2 & 3: The application is structured to run with `Docker`. So you need to install `Docker` and `Compose` first. [Here is a link](https://docs.docker.com/install/) from the offical docs. Once you have installed it, start the application. It should create symlinks for `docker` and `docker-compose` commands. See the [install Compose](https://docs.docker.com/compose/install/) section if you are missing `Compose`.
 
 You can run this command to check if you have install the latest version correctly.
 ```
 $ docker --version
 ```
-Now, you can run this command to build application
 ```
-$ docker-compose build
+$ docker-compose --version
+```
+
+For level 1, go into the `./server` folder and follow the instructions there to start the server only.
+
+For level 2 & 3: Since the project separate SPA and web service, you need to follows instrcutions to start all of them together.
+
+You need to run this command to build application. This will start up the containers. Run the build commands for each container including installing dependency, running unit tests.
+```
+$ docker-compose build --no-cache
 ```
 This command to run/start the application
 ```
@@ -38,7 +46,7 @@ Root folder has `docker-compose` which is a tool for defining and running multi-
 NGINX folder contains all the files needed for the NGINX container to run. [Read more about it here](nginx/README.md).
 
 ### server
-Server folder contains all the API server files. This containers acts like a API contains which separate from the UI and assets. [Read more about it here](server/README.md).
+Server folder contains all the API server files. This container acts like a API contains which separate from the UI and assets. [Read more about it here](server/README.md).
 
 ### src
 Src folder has all the client logic which includes JS, HTML, and assets. [Read more about it here](src/README.md).
