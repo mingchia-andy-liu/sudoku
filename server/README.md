@@ -2,7 +2,7 @@
 This is a Node server. All the requsts starts with `/sudoku` shall be directed to this web service.
 
 ## How to start
-This commands builds the containers with a `tag` 'server' and does not use cache when building.
+This commands builds the container with a `tag` 'server' and does not use cache when building.
 ```
 $ docker build -t server . --no-cache
 ```
@@ -12,7 +12,7 @@ $ docker run -p 8080:8080 server
 ```
 Since the `Dockerfile` exposes the `8080` port in container, we need to connect it with our host ports. You can change it to whatever port you want in the `<Host port>:8080`.
 
-Press `ctrl` + `c` to shutdown the container.
+Press `ctrl` + `c` to gracefully shutdown the container.
 
 ## Unit tests
 The units tests are composed of

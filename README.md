@@ -9,7 +9,7 @@ This repo is a sudoku generator.
 1. NGINX
 
 ## How to run
-For level 1 & 2 & 3: The application is structured to run with `Docker`. So you need to install `Docker` and `Compose` first. [Here is a link](https://docs.docker.com/install/) from the offical docs. Once you have installed it, start the application. It should create symlinks for `docker` and `docker-compose` commands. See the [install Compose](https://docs.docker.com/compose/install/) section if you are missing `Compose`.
+For level 1 & 2 & 3: The application is structured to run with `Docker`. So you need to install `Docker` and `Docker-compose` first. [Here is a link](https://docs.docker.com/install/) from the offical docs. Once you have installed it, start the application. It should create symlinks for `docker` and `docker-compose` commands. See the [install docker-compose](https://docs.docker.com/compose/install/) section if you are missing `docker-compose`.
 
 You can run this command to check if you have install the latest version correctly.
 ```
@@ -32,7 +32,7 @@ This command to run/start the application
 $ docker-compose up
 ```
 
-Once you are finished, you can press `ctrl` + `c` to shutdown docker containers.
+Once you are finished, you can press `ctrl` + `c` to gracefully shutdown docker containers.
 And run this command to remove stopped service containers
 ```
 $ docker-compose rm
@@ -40,7 +40,7 @@ $ docker-compose rm
 
 ## Directory Structure
 ### root
-Root folder has `docker-compose` which is a tool for defining and running multi-container Docker application. This app has 3 containers: nginx, server, and client. Docker is choosen because is easy to use and does not require a lot of memory space like VMs.
+Root folder has a `docker-compose.yml` file which used by `docker-compose`, a tool for defining and running multi-container Docker application. This app has 3 containers: nginx, server, and client. Docker was chosen because is easy to use and memory requirement is lightweight.
 
 ### nginx
 NGINX folder contains all the files needed for the NGINX container to run. [Read more about it here](nginx/README.md).
