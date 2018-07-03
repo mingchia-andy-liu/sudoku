@@ -7,10 +7,9 @@ WORKDIR /usr/app
 COPY package.json .
 RUN npm install --slient
 
-EXPOSE 8080
-
 # copy index.js and API files
 COPY . .
+RUN npm run test
 
 EXPOSE 8080
 

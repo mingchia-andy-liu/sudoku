@@ -126,6 +126,11 @@ const shuffleBoard = function(value, row, col) {
     return board
 }
 
+/**
+ * Return true if board at row is valid, false otherwise
+ * @param {array} board
+ * @param {number} row
+ */
 const isRowValid = (board, row) => {
     const check = [...Array(9).fill(0)]
     for (let i = row * 9; i < (row * 9) + 9; i++) {
@@ -138,6 +143,11 @@ const isRowValid = (board, row) => {
     return true;
 }
 
+/**
+ * Return true if board at col is valid, false otherwise
+ * @param {array} board
+ * @param {number} col
+ */
 const isColValid = (board, col) => {
     const check = [...Array(9).fill(0)]
     for (let i = 0; i < 9; i++) {
@@ -150,6 +160,11 @@ const isColValid = (board, col) => {
     return true;
 }
 
+/**
+ * Return true if board at blk is valid, false otherwise
+ * @param {array} board
+ * @param {number} blk
+ */
 const isBlkValid = (board, blk) => {
     const check = [...Array(9).fill(0)]
     const startIdx = Math.floor(blk / 3) * 27 + (blk % 3) * 3
@@ -166,7 +181,10 @@ const isBlkValid = (board, blk) => {
     return true;
 }
 
-
+/**
+ * Return true if board is valid, false otherwise
+ * @param {array} board
+ */
 const isBoardValid = (board) => {
     for (let i = 0; i < 9; i++) {
         if (!isRowValid(board, i) ||

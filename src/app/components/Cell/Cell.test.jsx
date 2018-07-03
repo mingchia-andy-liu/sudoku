@@ -17,7 +17,7 @@ describe('Cell component', () => {
         expect(wrapper.instance().props.index).toEqual(0)
         expect(wrapper.instance().props.selected).toEqual(0)
         expect(wrapper.instance().props.value).toEqual(1)
-        expect(wrapper.find('span').text()).toEqual("1")
+        expect(wrapper.find('span').text()).toEqual('1')
     })
 
     it('Renders selected correcrly', () => {
